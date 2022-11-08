@@ -3,7 +3,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #26283a;
+  background-color: #272938;
   color: #bdc0cc;
   font-family: 'Quicksand', sans-serif;
 }
@@ -15,7 +15,7 @@ body {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin: 25px;
   border-radius: 7px;
-  background-color: #41475f;
+  background-color: #3d4253;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +36,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background-color: #4a527a;
+  background-color: #535a79;
   border-radius: 7px;
   list-style-type: none;
 }
@@ -55,8 +55,20 @@ body {
 }
 
 .list-btn {
+  cursor: pointer;
   background: none;
   border: none;
   color: #1f2336;
   text-decoration: underline;
+}
+.list-btn:hover {
+  color: #313650;
+}
+
+/* comment dropdown */
+.comment-dropdown{
+  display: none;
+}
+.display-comments{
+  display: block;
 }

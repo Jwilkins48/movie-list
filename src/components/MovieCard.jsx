@@ -18,6 +18,18 @@ function MovieCard({ item }) {
       <button onClick={toggle} className="card-list-item list-btn">
         {item.comments.length} Comments
       </button>
+      <div
+        className={
+          toggleComments
+            ? "display-comments comment-dropdown"
+            : "comment-dropdown"
+        }
+      >
+        <div className="comment-list-container">
+          <input type="text" placeholder="Enter Comment" id="comment-input" />
+          <li>{item.comments}</li>
+        </div>
+      </div>
     </ul>
   );
 }

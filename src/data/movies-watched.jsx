@@ -8,7 +8,7 @@ const watched = [
   },
   {
     id: 2,
-    movie: "Sleep Hollow",
+    movie: "Sleepy Hollow",
     rating: "5",
     date_watched: "11/1/22",
     comments: [],
