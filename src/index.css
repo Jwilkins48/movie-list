@@ -29,6 +29,12 @@ body {
   text-align: center;
 }
 
+.plusIcon{
+  font-size: 29px;
+  color: #7ea9eb;
+  cursor: pointer;
+}
+
 .card {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: flex;
@@ -47,7 +53,6 @@ body {
 .movie-title{
   font-size: 20px;
   color: #7ea9eb;
-
 }
 
 .card-list-item {
@@ -71,4 +76,102 @@ body {
 }
 .display-comments{
   display: block;
+}
+
+/* MODAL */
+.add-watched-modal{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  z-index: -1;
+  position: absolute;
+  top: 8rem;
+  border-radius: 6px;
+  left: 1.1rem;
+  border: 2px solid #7ea9eb;
+  background-color: #45475a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 29rem;
+  transition: ease-in-out .3s;
+  opacity: 0;
+}
+.modal-open{
+  opacity: 1;
+  z-index: 1;
+}
+.modal-inner{
+  padding: 20px 35px;
+  height: 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-inner h2{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 30px;
+  color: #7ea9eb;
+  margin-top: 15px;
+  margin-bottom: -18px;
+}
+.modal-content{
+  padding: 20px 0;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.movie-name-container{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 18px;
+}
+.name-input{
+  padding: 7px 5px;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  width: 16rem;
+}
+.movie-rating-container{
+  display: flex;
+  font-size: 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.movie-watched-container{
+  font-size: 18px;
+}
+.movie-watched-container label{
+  margin-right: 10px;
+}
+.date{
+  color: #7ea9eb;
+}
+
+.movie-comment-container{
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.comment-textarea{
+  border-radius: 6px;
+  border: 1px solid;
+  resize: none;
+}
+
+.modal-btn{
+  font-family: 'Josefin Sans', sans-serif;
+  padding: 9px 15px;
+  border: 1px solid #4a6794;
+  margin: 0 10px;
+  border-radius: 6px;
+  background-color:#7b9dcf;
+  color: #383c4e;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

@@ -4,7 +4,6 @@ import { useState } from "react";
 function MovieCard({ item }) {
   const [toggleComments, setToggleComments] = useState(false);
   const toggle = () => {
-    console.log(toggleComments);
     setToggleComments(!toggleComments);
   };
   return (
