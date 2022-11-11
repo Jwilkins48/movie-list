@@ -120,7 +120,7 @@ body {
   margin-bottom: -10px;
 }
 .modal-content{
-  padding: 20px 0;
+  padding: 6px 0;
   height: 20rem;
   display: flex;
   flex-direction: column;
@@ -146,6 +146,23 @@ body {
   align-items: center;
   gap: 10px;
 }
+
+.star-container{
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+}
+.star-container > span{
+  display: inline-block;
+  position: relative;
+  padding: 0 11px;
+}
+.star-container > span:hover,
+.star-container > span:hover ~ span{
+  color: gold;
+  cursor: pointer;
+}
+
 .movie-watched-container{
   font-size: 16px;
 }
@@ -154,6 +171,7 @@ body {
 }
 .date{
   color: #7ea9eb;
+  background-color: #505674;
 }
 
 .movie-comment-container{
@@ -166,16 +184,23 @@ body {
   border-radius: 6px;
   border: 1px solid;
   resize: none;
+  padding: 5px;
 }
 
 .modal-btn{
+  cursor: pointer;
   font-family: 'Josefin Sans', sans-serif;
-  padding: 9px 15px;
+  padding: 11px 15px 9px;
+  width: 8rem;
   border: 1px solid #4a6794;
-  margin: 0 10px;
+  margin: 5px 10px;
   border-radius: 6px;
   background-color:#7b9dcf;
   color: #383c4e;
   font-weight: bold;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.modal-btn:hover{
+  background-color:#89aadd;
+  transform: scale(.98);
 }

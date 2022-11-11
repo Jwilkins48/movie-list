@@ -3,12 +3,38 @@ import React from "react";
 import { useState } from "react";
 import watched from "../data/movies-watched";
 import MovieCard from "./MovieCard";
-// import {v4 as uuidv4} from 'uuid'
+import { v4 as uuidv4 } from "uuid";
 
 function Home() {
   const [watchedMovies, setWatchedMovies] = useState(watched);
-  const [date, setDate] = useState(new Date());
   const [openModal, setOpenModal] = useState(false);
+
+  const [watchedMovieName, setWatchedMovieName] = useState("");
+  const [rating, setRating] = useState(0);
+  const [date, setDate] = useState(new Date());
+  const [comment, setComment] = useState("");
+
+  const addWatchedMovie = (watchedMovie) => {
+    watchedMovie.id = uuidv4();
+    setWatchedMovies([watchedMovie, ...watchedMovies]);
+  };
+
+  const deleteWatchedMovie = (id) => {
+    setWatchedMovies(watchedMovies.filter((item) => item.id !== id));
+  };
+
+  const handleSubmitWatched = (e) => {
+    e.preventDefault();
+    const movie = {
+      movie: watchedMovieName,
+      rating: rating,
+      // date_watched: date,
+      comments: comment,
+    };
+
+    addWatchedMovie(movie);
+    setOpenModal(false);
+  };
 
   return (
     <div className="Home">
@@ -30,6 +56,7 @@ function Home() {
           </div>
         </div>
 
+        {/* ADD WATCHED MODAL */}
         <div
           className={
             openModal ? "modal-open add-watched-modal" : "add-watched-modal"
@@ -42,6 +69,8 @@ function Home() {
                 <label htmlFor="name">Movie:</label>
                 <input
                   className="name-input"
+                  onChange={(e) => setWatchedMovieName(e.target.value)}
+                  value={watchedMovieName}
                   type="text"
                   name="name"
                   placeholder="Enter movie title"
@@ -51,28 +80,45 @@ function Home() {
               <div className="movie-rating-container">
                 <label>Rate:</label>
                 <div className="star-container">
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
-                  <i class="fa-regular fa-star"></i>
+                  <span onClick={() => setRating(5)}>
+                    <i class="fa-regular fa-star"></i>
+                  </span>
+                  <span onClick={() => setRating(4)}>
+                    <i class="fa-regular fa-star"></i>
+                  </span>
+                  <span onClick={() => setRating(3)}>
+                    <i class="fa-regular fa-star"></i>
+                  </span>
+                  <span onClick={() => setRating(2)}>
+                    <i class="fa-regular fa-star"></i>
+                  </span>
+                  <span onClick={() => setRating(1)}>
+                    <i class="fa-regular fa-star"></i>
+                  </span>
                 </div>
               </div>
               {/* WATCHED ON */}
               <div className="movie-watched-container">
                 <label>Watched on:</label>
-                <DatePicker className="date" onChange={setDate} value={date} />
+                <DatePicker
+                  dateFormat="MMMM d, yyyy"
+                  className="date"
+                  onChange={(date) => setDate(date)}
+                  value={date}
+                />
               </div>
               {/* COMMENTS */}
               <div className="movie-comment-container">
                 <label htmlFor="comment">Comment:</label>
                 <textarea
-                  rows="5"
-                  cols="36"
+                  rows="4"
+                  cols="35"
                   type="text"
                   name="comment"
                   className="comment-textarea"
                   placeholder="Enter comments"
+                  onChange={(e) => setComment(e.target.value)}
+                  value={comment}
                 />
               </div>
             </div>
@@ -83,13 +129,16 @@ function Home() {
               >
                 Cancel
               </button>
-              <button className="modal-add-btn modal-btn">Add Watched</button>
+              <button
+                onClick={handleSubmitWatched}
+                className="modal-add-btn modal-btn"
+              >
+                Add Watched
+              </button>
             </div>
           </div>
         </div>
       </div>
-
-      {/* ADD WATCHED MODAL */}
     </div>
   );
 }

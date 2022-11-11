@@ -15,7 +15,7 @@ function MovieCard({ item }) {
       <li className="card-list-item">Watched on {item.date_watched}</li>
       {/* Button to open comment dropdown */}
       <button onClick={toggle} className="card-list-item list-btn">
-        {item.comments.length} Comments
+        View Comments
       </button>
       <div
         className={
