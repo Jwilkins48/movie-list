@@ -29,66 +29,67 @@ function Home() {
             ))}
           </div>
         </div>
-      </div>
 
-      {/* ADD WATCHED MODAL */}
-      <div
-        className={
-          openModal ? "modal-open add-watched-modal" : "add-watched-modal"
-        }
-      >
-        <div className="modal-inner">
-          <h2>Add Watched</h2>
-          <div className="modal-content">
-            <div className="movie-name-container">
-              <label htmlFor="name">Movie:</label>
-              <input
-                className="name-input"
-                type="text"
-                name="name"
-                placeholder="Enter movie title"
-              />
-            </div>
-            {/* RATING */}
-            <div className="movie-rating-container">
-              <label>Rate:</label>
-              <div className="star-container">
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
-                <i class="fa-regular fa-star"></i>
+        <div
+          className={
+            openModal ? "modal-open add-watched-modal" : "add-watched-modal"
+          }
+        >
+          <div className="modal-inner">
+            <h2>Add Watched</h2>
+            <div className="modal-content">
+              <div className="movie-name-container">
+                <label htmlFor="name">Movie:</label>
+                <input
+                  className="name-input"
+                  type="text"
+                  name="name"
+                  placeholder="Enter movie title"
+                />
+              </div>
+              {/* RATING */}
+              <div className="movie-rating-container">
+                <label>Rate:</label>
+                <div className="star-container">
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                </div>
+              </div>
+              {/* WATCHED ON */}
+              <div className="movie-watched-container">
+                <label>Watched on:</label>
+                <DatePicker className="date" onChange={setDate} value={date} />
+              </div>
+              {/* COMMENTS */}
+              <div className="movie-comment-container">
+                <label htmlFor="comment">Comment:</label>
+                <textarea
+                  rows="5"
+                  cols="36"
+                  type="text"
+                  name="comment"
+                  className="comment-textarea"
+                  placeholder="Enter comments"
+                />
               </div>
             </div>
-            {/* WATCHED ON */}
-            <div className="movie-watched-container">
-              <label>Watched on:</label>
-              <DatePicker className="date" onChange={setDate} value={date} />
+            <div className="modal-button-container">
+              <button
+                onClick={() => setOpenModal(!openModal)}
+                className="modal-cancel-btn modal-btn"
+              >
+                Cancel
+              </button>
+              <button className="modal-add-btn modal-btn">Add Watched</button>
             </div>
-            {/* COMMENTS */}
-            <div className="movie-comment-container">
-              <label htmlFor="comment">Comment:</label>
-              <textarea
-                rows="5"
-                cols="36"
-                type="text"
-                name="comment"
-                className="comment-textarea"
-                placeholder="Enter comments"
-              />
-            </div>
-          </div>
-          <div className="modal-button-container">
-            <button
-              onClick={() => setOpenModal(!openModal)}
-              className="modal-cancel-btn modal-btn"
-            >
-              Cancel
-            </button>
-            <button className="modal-add-btn modal-btn">Add Watched</button>
           </div>
         </div>
       </div>
+
+      {/* ADD WATCHED MODAL */}
     </div>
   );
 }
