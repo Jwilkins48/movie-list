@@ -19,9 +19,9 @@ function Home() {
     setWatchedMovies([watchedMovie, ...watchedMovies]);
   };
 
-  // const deleteWatchedMovie = (id) => {
-  //   setWatchedMovies(watchedMovies.filter((item) => item.id !== id));
-  // };
+  const deleteWatchedMovie = (id) => {
+    setWatchedMovies(watchedMovies.filter((item) => item.id !== id));
+  };
 
   const handleSubmitWatched = (e) => {
     e.preventDefault();
@@ -53,11 +53,11 @@ function Home() {
               <div key={item.id} id={item.id}>
                 <MovieCard
                   key={item.id}
+                  deleteWatchedMovie={deleteWatchedMovie}
                   watchedMovies={watchedMovies}
                   setWatchedMovies={setWatchedMovies}
                   comment={comment}
                   setComment={setComment}
-                  // handleSubmitComment={handleSubmitComment}
                   item={item}
                 />
               </div>

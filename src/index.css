@@ -81,6 +81,42 @@ body {
 .display-comments{
   display: block;
 }
+.comment-btn{
+  background-color: #3d4253;
+  padding: 5.5px 9px 7.5px;
+  font-family: 'Quicksand', sans-serif;
+  border-radius: 0 6px 6px 0;
+  border: 1px solid #7ea9eb;
+  color: #7ea9eb;
+}
+.comment-list-container{
+  position: relative;
+}
+.comment-list-container input{
+  margin: 8px 0 20px;
+  padding: 7px 20px;
+  border-radius: 6px 0 0 6px;
+  border: 1px solid #7ea9eb;
+}
+.comment-container{
+  list-style-type: disc;
+  margin: 5px 12px;
+  color: #719ad8;
+  font-weight: bold;
+}
+.comment-container li{
+  margin: 8px 0px;
+}
+.comment-container::after{
+  content: "";
+  display: block;
+  width: 105%;
+  height: 1.5px;
+  background: #6e7f97;
+  left: -5px;
+  top: 52px;
+  position: absolute;
+}
 
 /* MODAL */
 .add-watched-modal{

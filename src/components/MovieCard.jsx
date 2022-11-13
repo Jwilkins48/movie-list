@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-function MovieCard({ item, comment, setComment }) {
+function MovieCard({ item, comment, setComment, deleteWatchedMovie }) {
   const [toggleComments, setToggleComments] = useState(false);
 
   // Add and display new comment
@@ -18,6 +18,12 @@ function MovieCard({ item, comment, setComment }) {
 
   return (
     <ul className="card">
+      <button
+        onClick={() => deleteWatchedMovie(item.id)}
+        className="delete-watched-btn"
+      >
+        <i class="fa-solid fa-xmark "></i>
+      </button>
       <div className="mobile-top-card">
         <li className="card-list-item movie-title">{item.movie}</li>
         <li className="card-list-item">{item.rating}/5 stars</li>
@@ -43,10 +49,18 @@ function MovieCard({ item, comment, setComment }) {
             placeholder="Enter Comment"
             id="comment-input"
           />
-          <button onClick={(e) => handleSubmitComment(e)} type="submit">
+          <button
+            className="comment-btn"
+            onClick={(e) => handleSubmitComment(e)}
+            type="submit"
+          >
             send
           </button>
-          <div>{item.comments}</div>
+          <div className="comment-container">
+            {item.comments.map((com) => (
+              <li>{com}</li>
+            ))}
+          </div>
         </div>
       </div>
     </ul>
