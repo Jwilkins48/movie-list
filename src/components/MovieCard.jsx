@@ -1,11 +1,21 @@
 import React from "react";
 import { useState } from "react";
 
-function MovieCard({ item }) {
+function MovieCard({ item, comment, setComment }) {
   const [toggleComments, setToggleComments] = useState(false);
+
+  // Add and display new comment
+  const handleSubmitComment = (e) => {
+    e.preventDefault();
+    item.comments.push(comment);
+    setComment("");
+    console.log(item.comments);
+  };
   const toggle = () => {
+    setComment("");
     setToggleComments(!toggleComments);
   };
+
   return (
     <ul className="card">
       <div className="mobile-top-card">
@@ -15,7 +25,7 @@ function MovieCard({ item }) {
       <li className="card-list-item">Watched on {item.date_watched}</li>
       {/* Button to open comment dropdown */}
       <button onClick={toggle} className="card-list-item list-btn">
-        View Comments
+        {item.comments.length} Comments
       </button>
       <div
         className={
@@ -24,9 +34,19 @@ function MovieCard({ item }) {
             : "comment-dropdown"
         }
       >
+        {/* Comment section */}
         <div className="comment-list-container">
-          <input type="text" placeholder="Enter Comment" id="comment-input" />
-          <li>{item.comments}</li>
+          <input
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+            type="text"
+            placeholder="Enter Comment"
+            id="comment-input"
+          />
+          <button onClick={(e) => handleSubmitComment(e)} type="submit">
+            send
+          </button>
+          <div>{item.comments}</div>
         </div>
       </div>
     </ul>

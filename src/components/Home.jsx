@@ -1,4 +1,4 @@
-import DatePicker from "react-date-picker";
+// import DatePicker from "react-date-picker";
 import React from "react";
 import { useState } from "react";
 import watched from "../data/movies-watched";
@@ -19,20 +19,21 @@ function Home() {
     setWatchedMovies([watchedMovie, ...watchedMovies]);
   };
 
-  const deleteWatchedMovie = (id) => {
-    setWatchedMovies(watchedMovies.filter((item) => item.id !== id));
-  };
+  // const deleteWatchedMovie = (id) => {
+  //   setWatchedMovies(watchedMovies.filter((item) => item.id !== id));
+  // };
 
   const handleSubmitWatched = (e) => {
     e.preventDefault();
     const movie = {
       movie: watchedMovieName,
       rating: rating,
-      // date_watched: date,
-      comments: comment,
+      date_watched: date,
+      comments: [comment],
     };
 
     addWatchedMovie(movie);
+    console.log(date);
     setOpenModal(false);
   };
 
@@ -50,7 +51,15 @@ function Home() {
           <div className="card-container">
             {watchedMovies.map((item) => (
               <div key={item.id} id={item.id}>
-                <MovieCard key={item.id} item={item} />
+                <MovieCard
+                  key={item.id}
+                  watchedMovies={watchedMovies}
+                  setWatchedMovies={setWatchedMovies}
+                  comment={comment}
+                  setComment={setComment}
+                  // handleSubmitComment={handleSubmitComment}
+                  item={item}
+                />
               </div>
             ))}
           </div>
@@ -99,12 +108,12 @@ function Home() {
               </div>
               {/* WATCHED ON */}
               <div className="movie-watched-container">
-                <label>Watched on:</label>
-                <DatePicker
-                  dateFormat="MMMM d, yyyy"
-                  className="date"
-                  onChange={(date) => setDate(date)}
-                  value={date}
+                <label htmlFor="date">Watched on: </label>
+                <input
+                  onChange={(e) => setDate(e.target.value)}
+                  defaultValue={date}
+                  name="date"
+                  type="date"
                 />
               </div>
               {/* COMMENTS */}
