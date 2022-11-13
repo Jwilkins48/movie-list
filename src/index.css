@@ -44,14 +44,35 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   padding: 20px;
   background-color: #535a79;
   border-radius: 7px;
   list-style-type: none;
+  position: relative;
+  width: 300px;
+}
+.delete-watched-btn{
+  position: absolute;
+  right: 12px;
+  top: 11px;
+  padding: 3.5px 6.3px 2px;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  background-color: #717791;
+  opacity: .4;
+  color: #192941;
+  cursor: pointer;
+  transition: .25s;
+}
+.delete-watched-btn:hover{
+  background-color: #8087a3;
+  opacity: 1;
 }
 .mobile-top-card{
   display: flex;
+  margin-top: 7px;
 }
 
 .movie-title{
@@ -64,11 +85,13 @@ body {
 }
 
 .list-btn {
+  font-family: 'Quicksand', sans-serif;
   cursor: pointer;
   background: none;
   border: none;
   color: #1f2336;
   text-decoration: underline;
+  display: flex;
 }
 .list-btn:hover {
   color: #313650;
@@ -83,11 +106,13 @@ body {
 }
 .comment-btn{
   background-color: #3d4253;
-  padding: 5.5px 9px 7.5px;
   font-family: 'Quicksand', sans-serif;
   border-radius: 0 6px 6px 0;
   border: 1px solid #7ea9eb;
   color: #7ea9eb;
+  height: 32px;
+
+
 }
 .comment-list-container{
   position: relative;

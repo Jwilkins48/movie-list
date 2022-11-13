@@ -4,6 +4,10 @@ import { useState } from "react";
 function MovieCard({ item, comment, setComment, deleteWatchedMovie }) {
   const [toggleComments, setToggleComments] = useState(false);
 
+  // const deleteComment = (id) => {
+  //   setComment(item.comments.filter((item) => item.id !== id));
+  // };
+
   // Add and display new comment
   const handleSubmitComment = (e) => {
     e.preventDefault();
@@ -58,7 +62,7 @@ function MovieCard({ item, comment, setComment, deleteWatchedMovie }) {
           </button>
           <div className="comment-container">
             {item.comments.map((com) => (
-              <li>{com}</li>
+              <li>{com} </li>
             ))}
           </div>
         </div>
