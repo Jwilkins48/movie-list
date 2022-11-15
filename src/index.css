@@ -92,6 +92,11 @@ body {
   color: #1f2336;
   text-decoration: underline;
   display: flex;
+  font-size: 15px;
+}
+.view-comments{
+  margin-left: -5px;
+  font-weight: 600;
 }
 .list-btn:hover {
   color: #313650;
@@ -107,20 +112,20 @@ body {
 .comment-btn{
   background-color: #3d4253;
   font-family: 'Quicksand', sans-serif;
-  border-radius: 0 6px 6px 0;
+  border-radius: 6px 0 6px 0;
+  margin-left: 8px;
   border: 1px solid #7ea9eb;
   color: #7ea9eb;
   height: 32px;
-
-
 }
 .comment-list-container{
   position: relative;
 }
 .comment-list-container input{
   margin: 8px 0 20px;
-  padding: 7px 20px;
-  border-radius: 6px 0 0 6px;
+  padding: 7px 8px;
+  width: 13rem;
+  border-radius: 4px ;
   border: 1px solid #7ea9eb;
 }
 .comment-container{
@@ -135,11 +140,11 @@ body {
 .comment-container::after{
   content: "";
   display: block;
-  width: 105%;
+  width: 17rem;
   height: 1.5px;
-  background: #6e7f97;
+  background: #5e7088;
   left: -5px;
-  top: 52px;
+  top: 55px;
   position: absolute;
 }
 
@@ -223,6 +228,11 @@ body {
   color: gold;
   cursor: pointer;
 }
+.star-container > span.activeRating,
+.star-container > span.activeRating ~ span{
+  color: gold;
+  cursor: pointer;
+}
 
 .movie-watched-container{
   font-size: 16px;
@@ -248,6 +258,12 @@ body {
   padding: 5px;
 }
 
+.open-comments{
+  display: block;
+}
+.closed-comments{
+  display: none;
+}
 .modal-btn{
   cursor: pointer;
   font-family: 'Josefin Sans', sans-serif;

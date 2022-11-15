@@ -3,10 +3,7 @@ import { useState } from "react";
 
 function MovieCard({ item, comment, setComment, deleteWatchedMovie }) {
   const [toggleComments, setToggleComments] = useState(false);
-
-  // const deleteComment = (id) => {
-  //   setComment(item.comments.filter((item) => item.id !== id));
-  // };
+  const [viewComments, setViewComments] = useState(false);
 
   // Add and display new comment
   const handleSubmitComment = (e) => {
@@ -35,7 +32,7 @@ function MovieCard({ item, comment, setComment, deleteWatchedMovie }) {
       <li className="card-list-item">Watched on {item.date_watched}</li>
       {/* Button to open comment dropdown */}
       <button onClick={toggle} className="card-list-item list-btn">
-        {item.comments.length} Comments
+        Add Comment
       </button>
       <div
         className={
@@ -60,10 +57,19 @@ function MovieCard({ item, comment, setComment, deleteWatchedMovie }) {
           >
             send
           </button>
+
           <div className="comment-container">
-            {item.comments.map((com) => (
-              <li>{com} </li>
-            ))}
+            <div
+              onClick={() => setViewComments(!viewComments)}
+              className="view-comments list-btn"
+            >
+              {item.comments.length} Comment(s)
+            </div>
+            <div className={viewComments ? "open-comments" : "closed-comments"}>
+              {item.comments.map((com) => (
+                <li key={com}>{com} </li>
+              ))}
+            </div>
           </div>
         </div>
       </div>

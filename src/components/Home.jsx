@@ -14,13 +14,20 @@ function Home() {
   const [date, setDate] = useState(new Date());
   const [comment, setComment] = useState("");
 
+  const [activeStar, setActiveStar] = useState("zero");
+
+  // LOCAL STORAGE
+  localStorage.setItem("local-watched", JSON.stringify(watchedMovies));
+  let retrievedData = localStorage.getItem("local-watched");
+  const localWatched = JSON.parse(retrievedData);
+
   const addWatchedMovie = (watchedMovie) => {
     watchedMovie.id = uuidv4();
-    setWatchedMovies([watchedMovie, ...watchedMovies]);
+    setWatchedMovies([watchedMovie, ...localWatched]);
   };
 
   const deleteWatchedMovie = (id) => {
-    setWatchedMovies(watchedMovies.filter((item) => item.id !== id));
+    setWatchedMovies(localWatched.filter((item) => item.id !== id));
   };
 
   const handleSubmitWatched = (e) => {
@@ -37,6 +44,18 @@ function Home() {
     setOpenModal(false);
   };
 
+  const handleRateClick = (active, rate) => {
+    setActiveStar(active);
+    setRating(rate);
+  };
+
+  const toggleModal = () => {
+    setActiveStar("zero");
+    setWatchedMovieName("");
+    setComment("");
+    setOpenModal(!openModal);
+  };
+
   return (
     <div className="Home">
       <div className="watched-container">
@@ -44,17 +63,17 @@ function Home() {
           <h1 className="watched-heading">
             Movies Watched{" "}
             <i
-              onClick={() => setOpenModal(!openModal)}
+              onClick={toggleModal}
               class="fa-solid fa-circle-plus plusIcon"
             ></i>
           </h1>
           <div className="card-container">
-            {watchedMovies.map((item) => (
+            {localWatched.map((item) => (
               <div key={item.id} id={item.id}>
                 <MovieCard
                   key={item.id}
                   deleteWatchedMovie={deleteWatchedMovie}
-                  watchedMovies={watchedMovies}
+                  watchedMovies={localWatched}
                   setWatchedMovies={setWatchedMovies}
                   comment={comment}
                   setComment={setComment}
@@ -89,20 +108,35 @@ function Home() {
               <div className="movie-rating-container">
                 <label>Rate:</label>
                 <div className="star-container">
-                  <span onClick={() => setRating(5)}>
+                  <span
+                    className={activeStar === "five" ? "activeRating" : ""}
+                    onClick={() => handleRateClick("five", 5)}
+                  >
                     <i class="fa-regular fa-star"></i>
                   </span>
-                  <span onClick={() => setRating(4)}>
+                  <span
+                    className={activeStar === "four" ? "activeRating" : ""}
+                    onClick={() => handleRateClick("four", 4)}
+                  >
                     <i class="fa-regular fa-star"></i>
                   </span>
-                  <span onClick={() => setRating(3)}>
+                  <span
+                    className={activeStar === "three" ? "activeRating" : ""}
+                    onClick={() => handleRateClick("three", 3)}
+                  >
                     <i class="fa-regular fa-star"></i>
                   </span>
-                  <span onClick={() => setRating(2)}>
+                  <span
+                    className={activeStar === "two" ? "activeRating" : ""}
+                    onClick={() => handleRateClick("two", 2)}
+                  >
                     <i class="fa-regular fa-star"></i>
                   </span>
-                  <span onClick={() => setRating(1)}>
-                    <i class="fa-regular fa-star"></i>
+                  <span
+                    className={activeStar === "one" ? "activeRating" : ""}
+                    onClick={() => handleRateClick("one", 1)}
+                  >
+                    <i className="fa-regular fa-star"></i>
                   </span>
                 </div>
               </div>
@@ -133,7 +167,7 @@ function Home() {
             </div>
             <div className="modal-button-container">
               <button
-                onClick={() => setOpenModal(!openModal)}
+                onClick={toggleModal}
                 className="modal-cancel-btn modal-btn"
               >
                 Cancel
