@@ -26,11 +26,23 @@ body {
 }
 
 .watched-inner {
+  position: relative;
   padding: 20px;
 }
 
 .watched-heading{
   text-align: center;
+}
+
+.watched-heading::after{
+  content: "";
+  display: block;
+  width: 18rem;
+  height: 2px;
+  background: #5e7088;
+  left: 1.8rem;
+  top: 93px;
+  position: absolute;
 }
 
 .plusIcon{
@@ -51,6 +63,9 @@ body {
   list-style-type: none;
   position: relative;
   width: 300px;
+}
+.card-container{
+  margin-top: 2rem;
 }
 .delete-watched-btn{
   position: absolute;
@@ -117,6 +132,8 @@ body {
   border: 1px solid #7ea9eb;
   color: #7ea9eb;
   height: 32px;
+  padding: 0 5px;
+  cursor: pointer;
 }
 .comment-list-container{
   position: relative;
@@ -146,6 +163,24 @@ body {
   left: -5px;
   top: 55px;
   position: absolute;
+}
+.userIconImg{
+  height: 25px;
+  margin-top: 3px;
+  margin-right: 8px;
+}
+.user-comment-container{
+  margin: 15px 10px 0px -8px;
+  background-color: #3d4253;
+  border-radius: 5px;
+  padding: 10px 15px;
+  width: auto;
+  opacity: .7;
+  display: flex;
+}
+.username{
+  font-size: 11px;
+  color: #11141a;
 }
 
 /* MODAL */

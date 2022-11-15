@@ -4,6 +4,7 @@ import { useState } from "react";
 import watched from "../data/movies-watched";
 import MovieCard from "./MovieCard";
 import { v4 as uuidv4 } from "uuid";
+import Header from "./Header";
 
 function Home() {
   const [watchedMovies, setWatchedMovies] = useState(watched);
@@ -17,17 +18,17 @@ function Home() {
   const [activeStar, setActiveStar] = useState("zero");
 
   // LOCAL STORAGE
-  localStorage.setItem("local-watched", JSON.stringify(watchedMovies));
-  let retrievedData = localStorage.getItem("local-watched");
-  const localWatched = JSON.parse(retrievedData);
+  // localStorage.setItem("local-watched", JSON.stringify(watchedMovies));
+  // let retrievedData = localStorage.getItem("local-watched");
+  // const localWatched = JSON.parse(retrievedData);
 
   const addWatchedMovie = (watchedMovie) => {
     watchedMovie.id = uuidv4();
-    setWatchedMovies([watchedMovie, ...localWatched]);
+    setWatchedMovies([watchedMovie, ...watchedMovies]);
   };
 
   const deleteWatchedMovie = (id) => {
-    setWatchedMovies(localWatched.filter((item) => item.id !== id));
+    setWatchedMovies(watchedMovies.filter((item) => item.id !== id));
   };
 
   const handleSubmitWatched = (e) => {
@@ -68,12 +69,12 @@ function Home() {
             ></i>
           </h1>
           <div className="card-container">
-            {localWatched.map((item) => (
+            {watchedMovies.map((item) => (
               <div key={item.id} id={item.id}>
                 <MovieCard
                   key={item.id}
                   deleteWatchedMovie={deleteWatchedMovie}
-                  watchedMovies={localWatched}
+                  watchedMovies={watchedMovies}
                   setWatchedMovies={setWatchedMovies}
                   comment={comment}
                   setComment={setComment}

@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import user from "../images/icon.png";
 
 function MovieCard({ item, comment, setComment, deleteWatchedMovie }) {
   const [toggleComments, setToggleComments] = useState(false);
@@ -17,6 +18,10 @@ function MovieCard({ item, comment, setComment, deleteWatchedMovie }) {
     setToggleComments(!toggleComments);
   };
 
+  function random() {
+    return Math.floor(Math.random() * 5000);
+  }
+
   return (
     <ul className="card">
       <button
@@ -32,7 +37,7 @@ function MovieCard({ item, comment, setComment, deleteWatchedMovie }) {
       <li className="card-list-item">Watched on {item.date_watched}</li>
       {/* Button to open comment dropdown */}
       <button onClick={toggle} className="card-list-item list-btn">
-        Add Comment
+        {toggleComments ? "Hide" : "Add Comment"}
       </button>
       <div
         className={
@@ -67,7 +72,13 @@ function MovieCard({ item, comment, setComment, deleteWatchedMovie }) {
             </div>
             <div className={viewComments ? "open-comments" : "closed-comments"}>
               {item.comments.map((com) => (
-                <li key={com}>{com} </li>
+                <div className="user-comment-container" key={com}>
+                  <img className="userIconImg" src={user} alt="user icon" />
+                  <div className="comment-content">
+                    <div className="username">User{random()}</div>
+                    <div className="user-comment">{com}</div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
