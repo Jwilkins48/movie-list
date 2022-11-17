@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../CSS/header.css";
 
 function Header() {
+  const links = [
+    { id: 1, title: "Movies Watched", path: "/" },
+    { id: 2, title: "Want To Watch", path: "/wantToWatch" },
+    { id: 3, title: "Spin", path: "/spin" },
+  ];
+
+  const [active, setActive] = useState(1);
+
+  const handleClick = (id) => {
+    setActive(id);
+    console.log(active);
+  };
+
   return (
     <div className="Header-container">
       <div className="title-container">
@@ -10,9 +24,18 @@ function Header() {
       </div>
 
       <div className="mobile-tab-container">
-        <div className="movies-watched-tab tab">Movies Watched</div>
-        <div className="want-to-watch-tab tab">Want To Watch</div>
-        <div className="spinner-tab tab">Spin</div>
+        {links.map((tab) => (
+          <div key={tab.id} id={tab.id}>
+            <Link className="link" to={tab.path}>
+              <li
+                onClick={() => setActive(tab.id)}
+                className={tab.id === active ? "active tab" : "tab"}
+              >
+                {tab.title}
+              </li>
+            </Link>
+          </div>
+        ))}
       </div>
     </div>
   );
