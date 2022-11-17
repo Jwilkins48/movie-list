@@ -1,13 +1,18 @@
 // import DatePicker from "react-date-picker";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import watched from "../data/movies-watched";
 import MovieCard from "./MovieCard";
 import { v4 as uuidv4 } from "uuid";
 import Header from "./Header";
 
 function Home() {
-  const [watchedMovies, setWatchedMovies] = useState(watched);
+  // LOCAL STORAGE
+  const localWatched = localStorage.getItem("watchedMovies")
+    ? JSON.parse(localStorage.getItem("watchedMovies"))
+    : [];
+
+  const [watchedMovies, setWatchedMovies] = useState(localWatched);
   const [openModal, setOpenModal] = useState(false);
 
   const [watchedMovieName, setWatchedMovieName] = useState("");
@@ -18,12 +23,12 @@ function Home() {
   const [activeStar, setActiveStar] = useState("zero");
 
   // LOCAL STORAGE
-  // localStorage.setItem("local-watched", JSON.stringify(watchedMovies));
-  // let retrievedData = localStorage.getItem("local-watched");
-  // const localWatched = JSON.parse(retrievedData);
+  useEffect(() => {
+    const json = JSON.stringify(watchedMovies);
+    window.localStorage.setItem("watchedMovies", json);
+  }, [watchedMovies]);
 
   const addWatchedMovie = (watchedMovie) => {
-    watchedMovie.id = uuidv4();
     setWatchedMovies([watchedMovie, ...watchedMovies]);
   };
 
@@ -34,6 +39,7 @@ function Home() {
   const handleSubmitWatched = (e) => {
     e.preventDefault();
     const movie = {
+      id: uuidv4(),
       movie: watchedMovieName,
       rating: rating,
       date_watched: date,

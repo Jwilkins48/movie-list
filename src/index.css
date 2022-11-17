@@ -198,11 +198,13 @@ body {
   height: 29rem;
   transition: ease-in-out .3s;
   opacity: 0;
+  visibility: hidden;
 }
 
 .modal-open{
   opacity: 1;
   z-index: 1;
+  visibility: visible;
 }
 .modal-inner{
   padding: 20px 35px;

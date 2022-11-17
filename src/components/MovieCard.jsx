@@ -1,8 +1,20 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import user from "../images/icon.png";
 
-function MovieCard({ item, comment, setComment, deleteWatchedMovie }) {
+function MovieCard({
+  item,
+  comment,
+  setComment,
+  deleteWatchedMovie,
+  watchedMovies,
+}) {
+  //Local storage for new comments
+  useEffect(() => {
+    const json = JSON.stringify(watchedMovies);
+    window.localStorage.setItem("watchedMovies", json);
+  }, [comment]);
+
   const [toggleComments, setToggleComments] = useState(false);
   const [viewComments, setViewComments] = useState(false);
 
