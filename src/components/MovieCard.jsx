@@ -27,6 +27,7 @@ function MovieCard({
   };
   const toggle = () => {
     setComment("");
+    setViewComments(false);
     setToggleComments(!toggleComments);
   };
 
