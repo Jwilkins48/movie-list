@@ -69,10 +69,10 @@ function Home() {
         <div className="watched-inner">
           <h1 className="watched-heading">
             Movies Watched{" "}
-            <i
-              onClick={toggleModal}
-              class="fa-solid fa-circle-plus plusIcon"
-            ></i>
+            <button onClick={toggleModal} className="add-watched-btn">
+              <i class="fa-solid fa-circle-plus plusIcon"></i>
+              <div className="desktop-watched-btn">Add Watched</div>
+            </button>
           </h1>
           <div className="card-container">
             {watchedMovies.map((item) => (
