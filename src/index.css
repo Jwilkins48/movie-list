@@ -27,7 +27,7 @@ body {
 
 .watched-inner {
   position: relative;
-  padding: 5px;
+  /* padding: 5px; */
 }
 
 .watched-heading {
@@ -37,11 +37,10 @@ body {
 .watched-heading::after {
   content: "";
   display: block;
-  width: 18rem;
+  width: 18.6rem;
   height: 2px;
   background: #5e7088;
-  left: 1.8rem;
-  top: 93px;
+  top: 75px;
   position: absolute;
 }
 
@@ -52,6 +51,7 @@ body {
 }
 
 .card {
+  margin-top: 0;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: flex;
   flex-direction: column;
@@ -354,13 +354,16 @@ body {
   }
   .watchedList-open {
     height: auto;
+    padding: 50px 10px 10px;
   }
   .watchedList-closed {
     height: 40rem;
+    padding: 50px 10px 10px;
   }
   .watched-inner {
     width: 68rem;
-    padding: 22px;
+    padding: 20px;
+    margin-top: -50px;
   }
   .viewAll {
     text-align: end;
@@ -410,4 +413,18 @@ body {
     width: auto;
     padding: 15px;
   }
+
+  .comment-container::after {
+    width: 64rem;
+  }
+
+  .movie-title {
+    font-size: 24px;
+  }
+
+  /* .Home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } */
 }

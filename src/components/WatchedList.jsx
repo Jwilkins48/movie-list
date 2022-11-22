@@ -1,10 +1,9 @@
 // import DatePicker from "react-date-picker";
 import React from "react";
 import { useState, useEffect } from "react";
-import watched from "../data/movies-watched";
 import MovieCard from "./MovieCard";
 import { v4 as uuidv4 } from "uuid";
-import Header from "./Header";
+import WantToWatch from "./WantToWatch";
 
 function Home() {
   // LOCAL STORAGE
@@ -210,6 +209,10 @@ function Home() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="wantToWatchContainer">
+        <WantToWatch />
       </div>
     </div>
   );

@@ -9,7 +9,6 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Header />
-        {/* <WatchedList /> */}
 
         <Routes>
           <Route path="/" element={<WatchedList />} />

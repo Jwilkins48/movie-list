@@ -11,11 +11,6 @@ function Header() {
 
   const [active, setActive] = useState(1);
 
-  const handleClick = (id) => {
-    setActive(id);
-    console.log(active);
-  };
-
   return (
     <div className="Header-container">
       <div className="title-container">
