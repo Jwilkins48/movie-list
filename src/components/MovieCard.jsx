@@ -8,6 +8,7 @@ function MovieCard({
   setComment,
   deleteWatchedMovie,
   watchedMovies,
+  rating,
 }) {
   //Local storage for new comments
   useEffect(() => {
@@ -17,6 +18,7 @@ function MovieCard({
 
   const [toggleComments, setToggleComments] = useState(false);
   const [viewComments, setViewComments] = useState(false);
+  // const [viewRate, setViewRate] = useState(rating);
 
   // Add and display new comment
   const handleSubmitComment = (e) => {

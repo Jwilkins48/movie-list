@@ -22,6 +22,8 @@ function Home() {
 
   const [activeStar, setActiveStar] = useState("zero");
 
+  const [toggleList, setToggleList] = useState(false);
+
   // LOCAL STORAGE
   useEffect(() => {
     const json = JSON.stringify(watchedMovies);
@@ -65,7 +67,13 @@ function Home() {
 
   return (
     <div className="Home">
-      <div className="watched-container">
+      <div
+        className={
+          toggleList
+            ? "watchedList-open watched-container"
+            : "watchedList-closed watched-container"
+        }
+      >
         <div className="watched-inner">
           <h1 className="watched-heading">
             Movies Watched{" "}
@@ -74,14 +82,20 @@ function Home() {
               <div className="desktop-watched-btn">Add Watched</div>
             </button>
           </h1>
-          <div className="card-container">
+          <div
+            style={{
+              overflow: toggleList ? "unset" : "hidden",
+              height: toggleList ? "" : "27.5rem",
+            }}
+            className="card-container"
+          >
             {watchedMovies.map((item) => (
               <div key={item.id} id={item.id}>
                 <MovieCard
                   key={item.id}
                   deleteWatchedMovie={deleteWatchedMovie}
                   watchedMovies={watchedMovies}
-                  setWatchedMovies={setWatchedMovies}
+                  rating={rating}
                   comment={comment}
                   setComment={setComment}
                   item={item}
@@ -89,6 +103,14 @@ function Home() {
               </div>
             ))}
           </div>
+
+          <h4
+            onClick={() => setToggleList(!toggleList)}
+            style={{ display: watchedMovies.length > 3 ? "block" : "none" }}
+            className="viewAll"
+          >
+            {toggleList ? "Close" : "See All"}
+          </h4>
         </div>
 
         {/* ADD WATCHED MODAL */}

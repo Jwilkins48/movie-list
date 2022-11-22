@@ -27,7 +27,7 @@ body {
 
 .watched-inner {
   position: relative;
-  padding: 20px;
+  padding: 5px;
 }
 
 .watched-heading {
@@ -86,6 +86,8 @@ body {
   opacity: 1;
 }
 .mobile-top-card {
+  justify-content: center;
+  align-items: center;
   display: flex;
   margin-top: 7px;
 }
@@ -273,6 +275,21 @@ body {
   cursor: pointer;
 }
 
+.star-displayed-container {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+}
+
+.star-displayed-container span {
+  margin: 0 2px;
+}
+
+.star-displayed-container > span.displayedRate,
+.star-displayed-container > span.displayedRate ~ span {
+  color: gold;
+}
+
 .movie-watched-container {
   font-size: 16px;
 }
@@ -335,8 +352,25 @@ body {
     border: #4a6794 2px solid;
     margin-top: 50px;
   }
+  .watchedList-open {
+    height: auto;
+  }
+  .watchedList-closed {
+    height: 40rem;
+  }
   .watched-inner {
     width: 68rem;
+    padding: 22px;
+  }
+  .viewAll {
+    text-align: end;
+    margin: 15px 10px -15px 0;
+    color: #2a2d41;
+    text-decoration: underline;
+  }
+  .viewAll:hover {
+    color: #303547;
+    cursor: pointer;
   }
   .watched-heading {
     display: flex;
@@ -346,8 +380,8 @@ body {
     margin-bottom: 40px;
   }
   .watched-heading::after {
-    width: 65rem;
-    left: 1rem;
+    width: 66.5rem;
+    left: 0.7rem;
     top: 96px;
   }
   .add-watched-btn {
@@ -361,7 +395,6 @@ body {
     display: block;
     cursor: pointer;
     background-color: #bd4b4b;
-    margin-right: 20px;
     padding: 10px;
     border: transparent;
     border-radius: 6px 0 6px 0;
