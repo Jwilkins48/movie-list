@@ -39,21 +39,29 @@ function MovieCard({
 
   return (
     <ul className="card">
-      <button
-        onClick={() => deleteWatchedMovie(item.id)}
-        className="delete-watched-btn"
-      >
-        <i class="fa-solid fa-xmark "></i>
-      </button>
-      <div className="mobile-top-card">
-        <li className="card-list-item movie-title">{item.movie}</li>
-        <li className="card-list-item">{item.rating}/5 stars</li>
+      <div className="shown">
+        <button
+          onClick={() => deleteWatchedMovie(item.id)}
+          className="delete-watched-btn"
+        >
+          <i class="fa-solid fa-xmark "></i>
+        </button>
+        <div className="mobile-top-card">
+          <li className="card-list-item movie-title">{item.movie}</li>
+          <li className="card-list-item">Watched on {item.date_watched}</li>
+        </div>
+        <li className="card-list-item stars">
+          {item.rating}/5 <i class="fa-regular fa-star card-star"></i>
+        </li>
+
+        <div className="card-button-container">
+          <button className="card-list-item list-btn">Mark Unwatched</button>
+          {/* Button to open comment dropdown */}
+          <button onClick={toggle} className="card-list-item list-btn">
+            {toggleComments ? "Hide" : "Add Comment"}
+          </button>
+        </div>
       </div>
-      <li className="card-list-item">Watched on {item.date_watched}</li>
-      {/* Button to open comment dropdown */}
-      <button onClick={toggle} className="card-list-item list-btn">
-        {toggleComments ? "Hide" : "Add Comment"}
-      </button>
       <div
         className={
           toggleComments

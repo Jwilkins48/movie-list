@@ -84,7 +84,7 @@ function Home() {
           <div
             style={{
               overflow: toggleList ? "unset" : "hidden",
-              height: toggleList ? "" : "27.5rem",
+              height: toggleList ? "" : "30rem",
             }}
             className="card-container"
           >

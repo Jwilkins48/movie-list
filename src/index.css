@@ -409,9 +409,15 @@ body {
     transform: scale(0.98);
     background-color: #b44646;
   }
+
+  .shown {
+    display: flex;
+  }
+
   .card {
     width: auto;
-    padding: 15px;
+    padding: 24px 15px;
+    text-align: center;
   }
 
   .comment-container::after {
@@ -422,9 +428,22 @@ body {
     font-size: 24px;
   }
 
-  /* .Home {
+  .mobile-top-card {
+    flex-direction: column;
+    width: 300px;
+  }
+
+  .stars {
+    border: 1px solid #ceb549;
     display: flex;
-    align-items: center;
     justify-content: center;
-  } */
+    align-items: center;
+    border-radius: 50px;
+  }
+  .card-star {
+    color: #ceb549;
+  }
+  .card-button-container {
+    margin-left: 20rem;
+  }
 }
