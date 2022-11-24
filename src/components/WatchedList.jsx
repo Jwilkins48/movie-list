@@ -212,7 +212,7 @@ function Home() {
       </div>
 
       <div className="wantToWatchContainer">
-        <WantToWatch />
+        <WantToWatch addWatchedMovie={addWatchedMovie} />
       </div>
     </div>
   );

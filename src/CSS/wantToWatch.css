@@ -78,14 +78,28 @@
   }
 
   .want-to-item {
-    margin: 40px 0px;
+    margin: 35px auto;
+    border: #7ea9eb 1px solid;
+    color: #7ea9eb;
+    border-radius: 20px;
     padding: 0px 20px;
     background-color: #5b678d;
-    width: 100%;
+    width: 90%;
   }
   .want-to-item i {
-    margin: 0px 20px;
-    font-size: 20px;
-    color: #a2a9b3;
+    margin: 0px 20px 0 5px;
+    font-size: 18px;
+    color: #888d94;
+  }
+  .finished {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #9ca2aa;
+    font-size: 18px;
+    margin-right: 0;
+  }
+  .finished:hover {
+    color: #b0b8c2;
   }
 }

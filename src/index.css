@@ -97,10 +97,6 @@ body {
   color: #7ea9eb;
 }
 
-.card-list-item {
-  padding: 5px;
-}
-
 .list-btn {
   font-family: "Quicksand", sans-serif;
   cursor: pointer;
@@ -125,6 +121,7 @@ body {
 }
 .display-comments {
   display: block;
+  margin-top: 20px;
 }
 .comment-btn {
   background-color: #3d4253;
@@ -430,12 +427,15 @@ body {
 
   .mobile-top-card {
     flex-direction: column;
-    width: 300px;
+    width: 250px;
+    align-items: flex-start;
+    margin-left: 10px;
   }
 
   .stars {
     border: 1px solid #ceb549;
     display: flex;
+    padding: 12px;
     justify-content: center;
     align-items: center;
     border-radius: 50px;
@@ -444,6 +444,7 @@ body {
     color: #ceb549;
   }
   .card-button-container {
-    margin-left: 20rem;
+    margin-left: 30rem;
+    margin-top: 0.5rem;
   }
 }
