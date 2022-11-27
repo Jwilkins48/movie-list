@@ -118,6 +118,7 @@ body {
 /* comment dropdown */
 .comment-dropdown {
   display: none;
+  transition: 0.5s ease-in-out;
 }
 .display-comments {
   display: block;

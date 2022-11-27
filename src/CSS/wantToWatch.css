@@ -11,7 +11,7 @@
   border-radius: 7px;
   height: 40rem;
   margin: 28px 25px 0;
-  width: 24rem;
+  width: 20.5rem;
   border: #4a6794 3px solid;
   background-color: #3d4253;
   position: relative;
@@ -25,14 +25,16 @@
 .wantToWatch-inner h3::after {
   content: "";
   display: block;
-  width: 20rem;
+  width: 18rem;
   height: 2px;
   background: #5e7088;
-  left: 2rem;
+  left: 1rem;
   top: 80px;
   position: absolute;
 }
 .want-to-item {
+  position: relative;
+
   margin: 40px 0px;
   padding: 10px 30px;
   background-color: #5b678d;
@@ -41,7 +43,54 @@
   align-items: center;
   justify-content: space-between;
 }
+.wantToWatch-input {
+  padding: 7px 5px;
+  border-radius: 0 5px 0 5px;
+  border: 1px solid #fff;
+  width: 15rem;
+  margin-right: 10px;
+}
+.wantToWatch-inputBtn {
+  border-radius: 0 5px 0 5px;
+  border: 1px solid #fff;
+}
+.input-container {
+  display: flex;
+  justify-content: center;
+}
 
+.delete-want-btn {
+  border: transparent;
+  background: transparent;
+  position: absolute;
+  right: 12px;
+  top: 11px;
+  padding: 3.5px 6.3px 2px;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  background-color: #717791;
+  opacity: 0.5;
+  color: #192941;
+  cursor: pointer;
+  transition: 0.25s;
+  padding: 0;
+}
+.delete-want-btn:hover {
+  background-color: #717791;
+  opacity: 1;
+}
+.finished {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #9ca2aa;
+  font-size: 18px;
+  margin-right: 20px;
+}
+.finished:hover {
+  color: #b0b8c2;
+}
 @media (min-width: 1280px) {
   .wantToWatch-container {
     box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
@@ -91,15 +140,14 @@
     font-size: 18px;
     color: #888d94;
   }
-  .finished {
-    cursor: pointer;
-    background: none;
-    border: none;
-    color: #9ca2aa;
-    font-size: 18px;
-    margin-right: 0;
+
+  .wantToWatch-input {
+    width: 16rem;
   }
-  .finished:hover {
-    color: #b0b8c2;
+
+  .delete-want-btn i {
+    padding: 5px 8px;
+    font-size: 15px;
+    margin: 0;
   }
 }
