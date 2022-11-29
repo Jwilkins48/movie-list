@@ -345,6 +345,10 @@ body {
 
 /* DESKTOP */
 @media (min-width: 1280px) {
+  .add-watched-modal {
+    margin-left: 33rem;
+    margin-top: 5rem;
+  }
   .watched-container {
     width: 70rem;
     border: #4a6794 2px solid;
@@ -436,7 +440,7 @@ body {
   .stars {
     border: 1px solid #ceb549;
     display: flex;
-    padding: 12px;
+    padding: 0px 20px;
     justify-content: center;
     align-items: center;
     border-radius: 50px;

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import MovieCard from "./MovieCard";
 import { v4 as uuidv4 } from "uuid";
 import WantToWatch from "./WantToWatch";
+import Card from "./Card";
 
 function Home() {
   // LOCAL STORAGE
@@ -58,11 +59,14 @@ function Home() {
   };
 
   const toggleModal = () => {
-    setActiveStar("zero");
-    setWatchedMovieName("");
+    setMovieName("");
     setComment("");
     setOpenModal(!openModal);
   };
+
+  const [movieName, setMovieName] = useState("");
+  const [addWatchedBtn, setAddWatchedBtn] = useState(false);
+  const [addWantToWatchBtn, setAddWantToWatchBtn] = useState(false);
 
   return (
     <div className="Home">
@@ -75,7 +79,7 @@ function Home() {
       >
         <div className="watched-inner">
           <h1 className="watched-heading">
-            Movies Watched{" "}
+            Movies Watched
             <button onClick={toggleModal} className="add-watched-btn">
               <i class="fa-solid fa-circle-plus plusIcon"></i>
               <div className="desktop-watched-btn">Add Watched</div>
@@ -126,7 +130,7 @@ function Home() {
                 <input
                   className="name-input"
                   onChange={(e) => setWatchedMovieName(e.target.value)}
-                  value={watchedMovieName}
+                  // defaultValue={movieName}
                   type="text"
                   name="name"
                   placeholder="Enter movie title"
@@ -212,7 +216,15 @@ function Home() {
       </div>
 
       <div className="wantToWatchContainer">
-        <WantToWatch addWatchedMovie={addWatchedMovie} />
+        <WantToWatch
+          setMovieName={setMovieName}
+          movieName={movieName}
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+          setWatchedMovies={setWatchedMovies}
+          watchedMovies={watchedMovies}
+          addWatchedMovie={addWatchedMovie}
+        />
       </div>
     </div>
   );

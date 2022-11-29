@@ -25,7 +25,6 @@ function MovieCard({
     e.preventDefault();
     item.comments.push(comment);
     setComment("");
-    console.log(item.comments);
   };
   const toggle = () => {
     setComment("");
@@ -72,7 +71,6 @@ function MovieCard({
         {/* Comment section */}
         <div className="comment-list-container">
           <input
-            value={comment}
             onChange={(e) => setComment(e.target.value)}
             type="text"
             placeholder="Enter Comment"
@@ -91,7 +89,8 @@ function MovieCard({
               onClick={() => setViewComments(!viewComments)}
               className="view-comments list-btn"
             >
-              {item.comments.length} Comment(s)
+              hi
+              {/* {item.comments.length Comment(s)} */}
             </div>
             <div className={viewComments ? "open-comments" : "closed-comments"}>
               {item.comments.map((com) => (
