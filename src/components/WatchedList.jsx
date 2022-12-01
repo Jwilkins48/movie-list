@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import MovieCard from "./MovieCard";
 import { v4 as uuidv4 } from "uuid";
 import WantToWatch from "./WantToWatch";
+import { Scrollbars } from "react-custom-scrollbars";
 import Card from "./Card";
 
 function Home() {
@@ -17,10 +18,11 @@ function Home() {
 
   const [watchedMovieName, setWatchedMovieName] = useState("");
   const [rating, setRating] = useState(0);
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState("2022-12-01");
   const [comment, setComment] = useState("");
 
   const [activeStar, setActiveStar] = useState("zero");
+  const [showRate, setShowRate] = useState(false);
 
   const [toggleList, setToggleList] = useState(false);
 
@@ -47,26 +49,25 @@ function Home() {
       date_watched: date,
       comments: [comment],
     };
-
     addWatchedMovie(movie);
-    console.log(date);
     setOpenModal(false);
   };
 
   const handleRateClick = (active, rate) => {
+    setShowRate(true);
     setActiveStar(active);
     setRating(rate);
   };
 
   const toggleModal = () => {
-    setMovieName("");
+    setWatchedMovieName("");
     setComment("");
+    setShowRate(false);
+    setDate("2022-12-01");
     setOpenModal(!openModal);
   };
 
   const [movieName, setMovieName] = useState("");
-  const [addWatchedBtn, setAddWatchedBtn] = useState(false);
-  const [addWantToWatchBtn, setAddWantToWatchBtn] = useState(false);
 
   return (
     <div className="Home">
@@ -81,39 +82,35 @@ function Home() {
           <h1 className="watched-heading">
             Movies Watched
             <button onClick={toggleModal} className="add-watched-btn">
-              <i class="fa-solid fa-circle-plus plusIcon"></i>
+              <i className="fa-solid fa-circle-plus plusIcon"></i>
               <div className="desktop-watched-btn">Add Watched</div>
             </button>
           </h1>
-          <div
-            style={{
-              overflow: toggleList ? "unset" : "hidden",
-              height: toggleList ? "" : "30rem",
-            }}
-            className="card-container"
-          >
-            {watchedMovies.map((item) => (
-              <div key={item.id} id={item.id}>
-                <MovieCard
-                  key={item.id}
-                  deleteWatchedMovie={deleteWatchedMovie}
-                  watchedMovies={watchedMovies}
-                  rating={rating}
-                  comment={comment}
-                  setComment={setComment}
-                  item={item}
-                />
-              </div>
-            ))}
-          </div>
+          <Scrollbars style={{ width: "100%", height: "32rem" }}>
+            <div className="card-container">
+              {watchedMovies.map((item) => (
+                <div key={item.id} id={item.id}>
+                  <MovieCard
+                    key={item.id}
+                    deleteWatchedMovie={deleteWatchedMovie}
+                    watchedMovies={watchedMovies}
+                    rating={rating}
+                    comment={comment}
+                    setComment={setComment}
+                    item={item}
+                  />
+                </div>
+              ))}
+            </div>
+          </Scrollbars>
 
-          <h4
+          {/* <h4
             onClick={() => setToggleList(!toggleList)}
             style={{ display: watchedMovies.length > 3 ? "block" : "none" }}
             className="viewAll"
           >
             {toggleList ? "Close" : "See All"}
-          </h4>
+          </h4> */}
         </div>
 
         {/* ADD WATCHED MODAL */}
@@ -130,7 +127,7 @@ function Home() {
                 <input
                   className="name-input"
                   onChange={(e) => setWatchedMovieName(e.target.value)}
-                  // defaultValue={movieName}
+                  value={watchedMovieName}
                   type="text"
                   name="name"
                   placeholder="Enter movie title"
@@ -141,31 +138,51 @@ function Home() {
                 <label>Rate:</label>
                 <div className="star-container">
                   <span
-                    className={activeStar === "five" ? "activeRating" : ""}
+                    className={
+                      activeStar === "five" && showRate === true
+                        ? "activeRating"
+                        : ""
+                    }
                     onClick={() => handleRateClick("five", 5)}
                   >
-                    <i class="fa-regular fa-star"></i>
+                    <i className="fa-regular fa-star"></i>
                   </span>
                   <span
-                    className={activeStar === "four" ? "activeRating" : ""}
+                    className={
+                      activeStar === "four" && showRate === true
+                        ? "activeRating"
+                        : ""
+                    }
                     onClick={() => handleRateClick("four", 4)}
                   >
-                    <i class="fa-regular fa-star"></i>
+                    <i className="fa-regular fa-star"></i>
                   </span>
                   <span
-                    className={activeStar === "three" ? "activeRating" : ""}
+                    className={
+                      activeStar === "three" && showRate === true
+                        ? "activeRating"
+                        : ""
+                    }
                     onClick={() => handleRateClick("three", 3)}
                   >
-                    <i class="fa-regular fa-star"></i>
+                    <i className="fa-regular fa-star"></i>
                   </span>
                   <span
-                    className={activeStar === "two" ? "activeRating" : ""}
+                    className={
+                      activeStar === "two" && showRate === true
+                        ? "activeRating"
+                        : ""
+                    }
                     onClick={() => handleRateClick("two", 2)}
                   >
-                    <i class="fa-regular fa-star"></i>
+                    <i className="fa-regular fa-star"></i>
                   </span>
                   <span
-                    className={activeStar === "one" ? "activeRating" : ""}
+                    className={
+                      activeStar === "one" && showRate === true
+                        ? "activeRating"
+                        : ""
+                    }
                     onClick={() => handleRateClick("one", 1)}
                   >
                     <i className="fa-regular fa-star"></i>
@@ -177,7 +194,7 @@ function Home() {
                 <label htmlFor="date">Watched on: </label>
                 <input
                   onChange={(e) => setDate(e.target.value)}
-                  defaultValue={date}
+                  value={date}
                   name="date"
                   type="date"
                 />
@@ -220,6 +237,7 @@ function Home() {
           setMovieName={setMovieName}
           movieName={movieName}
           openModal={openModal}
+          setWatchedMovieName={setWatchedMovieName}
           setOpenModal={setOpenModal}
           setWatchedMovies={setWatchedMovies}
           watchedMovies={watchedMovies}

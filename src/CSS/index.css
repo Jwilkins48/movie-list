@@ -62,10 +62,11 @@ body {
   border-radius: 7px;
   list-style-type: none;
   position: relative;
-  width: 300px;
+  width: 285px;
 }
 .card-container {
   margin-top: 2rem;
+  overflow: auto;
 }
 .delete-watched-btn {
   position: absolute;
@@ -86,8 +87,11 @@ body {
   opacity: 1;
 }
 .mobile-top-card {
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+  margin: 5px 0;
+  gap: 5px;
   display: flex;
   margin-top: 7px;
 }
@@ -108,7 +112,6 @@ body {
   font-size: 15px;
 }
 .view-comments {
-  margin-left: -5px;
   font-weight: 600;
 }
 .list-btn:hover {
@@ -123,12 +126,13 @@ body {
 .display-comments {
   display: block;
   margin-top: 20px;
+  width: 40rem;
 }
 .comment-btn {
   background-color: #3d4253;
   font-family: "Quicksand", sans-serif;
   border-radius: 6px 0 6px 0;
-  margin-left: 8px;
+  margin: 7px 10px;
   border: 1px solid #7ea9eb;
   color: #7ea9eb;
   height: 32px;
@@ -136,6 +140,7 @@ body {
   cursor: pointer;
 }
 .comment-list-container {
+  margin-left: -10px;
   position: relative;
 }
 .comment-list-container input {
@@ -170,7 +175,7 @@ body {
   margin-right: 8px;
 }
 .user-comment-container {
-  margin: 15px 10px 0px -8px;
+  margin: 15px 10px 0px 0px;
   background-color: #3d4253;
   border-radius: 5px;
   padding: 10px 15px;
@@ -181,6 +186,11 @@ body {
 .username {
   font-size: 11px;
   color: #11141a;
+}
+.comment-content {
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
 }
 
 /* MODAL */
@@ -312,11 +322,14 @@ body {
   padding: 5px;
 }
 
-.open-comments {
-  display: block;
-}
 .closed-comments {
   display: none;
+}
+.open-comments {
+  margin-right: 10px;
+}
+.scrollbar-comment {
+  padding: 10px;
 }
 .modal-btn {
   cursor: pointer;
@@ -343,8 +356,27 @@ body {
   display: none;
 }
 
+.stars {
+  width: 5rem;
+  border: 1px solid #ceb549;
+  display: flex;
+  padding: 0px 0px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  margin: 10px 0;
+}
+.card-star {
+  color: #ceb549;
+}
+
 /* DESKTOP */
 @media (min-width: 1280px) {
+  .contact-input-form {
+    margin-left: 10px;
+    display: flex;
+    align-content: center;
+  }
   .add-watched-modal {
     margin-left: 33rem;
     margin-top: 5rem;
@@ -420,6 +452,7 @@ body {
     width: auto;
     padding: 24px 15px;
     text-align: center;
+    margin-right: 20px;
   }
 
   .comment-container::after {
@@ -438,16 +471,9 @@ body {
   }
 
   .stars {
-    border: 1px solid #ceb549;
-    display: flex;
-    padding: 0px 20px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
+    width: 6rem;
   }
-  .card-star {
-    color: #ceb549;
-  }
+
   .card-button-container {
     margin-left: 30rem;
     margin-top: 0.5rem;

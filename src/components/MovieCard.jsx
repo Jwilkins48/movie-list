@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import user from "../images/icon.png";
+import { Scrollbars } from "react-custom-scrollbars";
 
 function MovieCard({
   item,
@@ -18,7 +19,6 @@ function MovieCard({
 
   const [toggleComments, setToggleComments] = useState(false);
   const [viewComments, setViewComments] = useState(false);
-  // const [viewRate, setViewRate] = useState(rating);
 
   // Add and display new comment
   const handleSubmitComment = (e) => {
@@ -43,14 +43,14 @@ function MovieCard({
           onClick={() => deleteWatchedMovie(item.id)}
           className="delete-watched-btn"
         >
-          <i class="fa-solid fa-xmark "></i>
+          <i className="fa-solid fa-xmark "></i>
         </button>
         <div className="mobile-top-card">
           <li className="card-list-item movie-title">{item.movie}</li>
           <li className="card-list-item">Watched on {item.date_watched}</li>
         </div>
         <li className="card-list-item stars">
-          {item.rating}/5 <i class="fa-regular fa-star card-star"></i>
+          {item.rating}/5 <i className="fa-regular fa-star card-star"></i>
         </li>
 
         <div className="card-button-container">
@@ -70,39 +70,45 @@ function MovieCard({
       >
         {/* Comment section */}
         <div className="comment-list-container">
-          <input
-            onChange={(e) => setComment(e.target.value)}
-            type="text"
-            placeholder="Enter Comment"
-            id="comment-input"
-          />
-          <button
-            className="comment-btn"
-            onClick={(e) => handleSubmitComment(e)}
-            type="submit"
-          >
-            send
-          </button>
+          <form onSubmit={handleSubmitComment} className="contact-input-form">
+            <input
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+              type="text"
+              placeholder="Enter Comment"
+              id="comment-input"
+            />
+            <button className="comment-btn" type="submit">
+              send
+            </button>
+          </form>
 
           <div className="comment-container">
             <div
               onClick={() => setViewComments(!viewComments)}
               className="view-comments list-btn"
             >
-              hi
-              {/* {item.comments.length Comment(s)} */}
+              {item.comments.length} Comment(s)
             </div>
-            <div className={viewComments ? "open-comments" : "closed-comments"}>
-              {item.comments.map((com) => (
-                <div className="user-comment-container" key={com}>
-                  <img className="userIconImg" src={user} alt="user icon" />
-                  <div className="comment-content">
-                    <div className="username">User{random()}</div>
-                    <div className="user-comment">{com}</div>
+            <Scrollbars
+              className="scrollbar-comment"
+              style={{ width: "100%", height: "9rem" }}
+            >
+              <div
+                // className={viewComments ? "open-comments" : "closed-comments"}
+                className="open-comments"
+              >
+                {item.comments.map((com) => (
+                  <div className="user-comment-container" key={com}>
+                    <img className="userIconImg" src={user} alt="user icon" />
+                    <div className="comment-content">
+                      <div className="username">User{random()}</div>
+                      <div className="user-comment">{com}</div>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </Scrollbars>
           </div>
         </div>
       </div>

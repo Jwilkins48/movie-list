@@ -6,8 +6,8 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className="App">
         <Header />
 
         <Routes>
@@ -15,8 +15,8 @@ function App() {
           <Route path="/wantToWatch" element={<WantToWatch />} />
           <Route path="/spin" element={<Spin />} />
         </Routes>
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 

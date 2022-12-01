@@ -14,8 +14,10 @@ function Header() {
   return (
     <div className="Header-container">
       <div className="title-container">
-        <h2>Movie Time</h2>
-        <i class="fa-solid fa-ticket icon"></i>
+        <Link to={"/"}>
+          <h2>Movie Time</h2>
+        </Link>
+        <i className="fa-solid fa-ticket icon"></i>
       </div>
 
       <div className="mobile-tab-container">
