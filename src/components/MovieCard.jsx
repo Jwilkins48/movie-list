@@ -54,7 +54,6 @@ function MovieCard({
         </li>
 
         <div className="card-button-container">
-          <button className="card-list-item list-btn">Mark Unwatched</button>
           {/* Button to open comment dropdown */}
           <button onClick={toggle} className="card-list-item list-btn">
             {toggleComments ? "Hide" : "Add Comment"}

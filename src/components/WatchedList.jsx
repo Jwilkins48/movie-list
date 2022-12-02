@@ -25,6 +25,7 @@ function Home() {
   const [showRate, setShowRate] = useState(false);
 
   const [toggleList, setToggleList] = useState(false);
+  const [watched, setWatched] = useState(false);
 
   // LOCAL STORAGE
   useEffect(() => {
@@ -48,7 +49,9 @@ function Home() {
       rating: rating,
       date_watched: date,
       comments: [comment],
+      checked: true,
     };
+
     addWatchedMovie(movie);
     setOpenModal(false);
   };
@@ -59,11 +62,15 @@ function Home() {
     setRating(rate);
   };
 
-  const toggleModal = () => {
-    setWatchedMovieName("");
+  const clearBoard = () => {
     setComment("");
     setShowRate(false);
     setDate("2022-12-01");
+  };
+
+  const toggleModal = () => {
+    setWatchedMovieName("");
+    clearBoard();
     setOpenModal(!openModal);
   };
 
@@ -234,14 +241,13 @@ function Home() {
 
       <div className="wantToWatchContainer">
         <WantToWatch
+          clearBoard={clearBoard}
+          setWatched={setWatched}
           setMovieName={setMovieName}
           movieName={movieName}
           openModal={openModal}
           setWatchedMovieName={setWatchedMovieName}
           setOpenModal={setOpenModal}
-          setWatchedMovies={setWatchedMovies}
-          watchedMovies={watchedMovies}
-          addWatchedMovie={addWatchedMovie}
         />
       </div>
     </div>

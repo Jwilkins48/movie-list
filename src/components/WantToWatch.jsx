@@ -8,6 +8,8 @@ function WantToWatch({
   setMovieName,
   movieName,
   setWatchedMovieName,
+  setWatched,
+  clearBoard,
 }) {
   // LOCAL STORAGE
   const localWantToWatch = localStorage.getItem("wantToWatch")
@@ -36,13 +38,17 @@ function WantToWatch({
     const newMovie = {
       id: uuidv4(),
       movie: movieName,
+      checked: false,
     };
     addWantToWatchMovie(newMovie);
     e.target.reset();
   };
 
-  const watchedModal = (movie) => {
+  const watchedModal = (movie, id) => {
     setWatchedMovieName(movie);
+    clearBoard();
+    deleteWantToWatchMovie(id);
+
     setOpenModal(!openModal);
   };
 
@@ -65,7 +71,7 @@ function WantToWatch({
               <div className="want-to-item">
                 <h2 className="want-movie-list">{item.movie}</h2>
                 <button
-                  onClick={() => watchedModal(item.movie)}
+                  onClick={(e) => watchedModal(item.movie, item.id)}
                   className="finished"
                 >
                   Watched<i className="fa-solid fa-check"></i>

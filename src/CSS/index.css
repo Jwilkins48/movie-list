@@ -179,7 +179,7 @@ body {
   background-color: #3d4253;
   border-radius: 5px;
   padding: 10px 15px;
-  width: auto;
+  width: 15rem;
   opacity: 0.7;
   display: flex;
 }
@@ -477,5 +477,9 @@ body {
   .card-button-container {
     margin-left: 30rem;
     margin-top: 0.5rem;
+  }
+
+  .user-comment-container {
+    width: auto;
   }
 }

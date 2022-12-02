@@ -44,15 +44,24 @@
   justify-content: space-between;
 }
 .wantToWatch-input {
+  background-color: #535869;
   padding: 7px 5px;
   border-radius: 0 5px 0 5px;
-  border: 1px solid #fff;
+  border: 1px solid #7ea9eb;
+  color: #fff;
   width: 15rem;
   margin-right: 10px;
 }
 .wantToWatch-inputBtn {
   border-radius: 0 5px 0 5px;
-  border: 1px solid #fff;
+  border: 1px solid #7ea9eb;
+  background-color: #688dc5;
+  color: #3d4253;
+  cursor: pointer;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+}
+.wantToWatch-inputBtn:hover {
+  transform: scale(0.98);
 }
 .input-container {
   display: flex;

@@ -21,6 +21,9 @@
   color: #e96b6b;
   font-size: 28px;
 }
+.title-container a {
+  text-decoration: none;
+}
 .mobile-tab-container {
   display: flex;
 }
