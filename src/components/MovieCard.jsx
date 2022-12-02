@@ -49,17 +49,21 @@ function MovieCard({
           <li className="card-list-item movie-title">{item.movie}</li>
           <li className="card-list-item">Watched on {item.date_watched}</li>
         </div>
-        <li className="card-list-item stars">
-          {item.rating}/5 <i className="fa-regular fa-star card-star"></i>
-        </li>
 
-        <div className="card-button-container">
-          {/* Button to open comment dropdown */}
-          <button onClick={toggle} className="card-list-item list-btn">
-            {toggleComments ? "Hide" : "Add Comment"}
-          </button>
+        <div className="end-content">
+          <li className="card-list-item stars">
+            {item.rating}/5 <i className="fa-regular fa-star card-star"></i>
+          </li>
+
+          <div className="card-button-container">
+            {/* Button to open comment dropdown */}
+            <button onClick={toggle} className="card-list-item list-btn">
+              {toggleComments ? "Hide" : "Add Comment"}
+            </button>
+          </div>
         </div>
       </div>
+
       <div
         className={
           toggleComments

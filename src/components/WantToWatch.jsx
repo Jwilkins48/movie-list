@@ -1,23 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "../CSS/wantToWatch.css";
 import { v4 as uuidv4 } from "uuid";
 
 function WantToWatch({
   openModal,
+  wantToWatch,
+  setWantToWatch,
   setOpenModal,
   setMovieName,
   movieName,
   setWatchedMovieName,
-  setWatched,
   clearBoard,
 }) {
-  // LOCAL STORAGE
-  const localWantToWatch = localStorage.getItem("wantToWatch")
-    ? JSON.parse(localStorage.getItem("wantToWatch"))
-    : [];
-
-  const [wantToWatch, setWantToWatch] = useState(localWantToWatch);
-
   // LOCAL STORAGE
   useEffect(() => {
     const json = JSON.stringify(wantToWatch);
@@ -47,8 +41,6 @@ function WantToWatch({
   const watchedModal = (movie, id) => {
     setWatchedMovieName(movie);
     clearBoard();
-    deleteWantToWatchMovie(id);
-
     setOpenModal(!openModal);
   };
 

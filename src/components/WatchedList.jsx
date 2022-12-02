@@ -5,27 +5,35 @@ import MovieCard from "./MovieCard";
 import { v4 as uuidv4 } from "uuid";
 import WantToWatch from "./WantToWatch";
 import { Scrollbars } from "react-custom-scrollbars";
-import Card from "./Card";
 
-function Home() {
-  // LOCAL STORAGE
-  const localWatched = localStorage.getItem("watchedMovies")
-    ? JSON.parse(localStorage.getItem("watchedMovies"))
-    : [];
+function Home({
+  watchedMovies,
+  setWatchedMovies,
+  wantToWatch,
+  setWantToWatch,
+}) {
+  // // WATCHED LOCAL STORAGE
+  // const localWatched = localStorage.getItem("watchedMovies")
+  //   ? JSON.parse(localStorage.getItem("watchedMovies"))
+  //   : [];
 
-  const [watchedMovies, setWatchedMovies] = useState(localWatched);
+  // const [watchedMovies, setWatchedMovies] = useState(localWatched);
+
+  // // WANT TO LOCAL STORAGE
+  // const localWantToWatch = localStorage.getItem("wantToWatch")
+  //   ? JSON.parse(localStorage.getItem("wantToWatch"))
+  //   : [];
+  // const [wantToWatch, setWantToWatch] = useState(localWantToWatch);
+
   const [openModal, setOpenModal] = useState(false);
-
   const [watchedMovieName, setWatchedMovieName] = useState("");
   const [rating, setRating] = useState(0);
   const [date, setDate] = useState("2022-12-01");
   const [comment, setComment] = useState("");
-
   const [activeStar, setActiveStar] = useState("zero");
   const [showRate, setShowRate] = useState(false);
-
   const [toggleList, setToggleList] = useState(false);
-  const [watched, setWatched] = useState(false);
+  const [movieName, setMovieName] = useState("");
 
   // LOCAL STORAGE
   useEffect(() => {
@@ -33,14 +41,26 @@ function Home() {
     window.localStorage.setItem("watchedMovies", json);
   }, [watchedMovies]);
 
+  //Deletes from want to watch when added to watched
+  useEffect(() => {
+    setWantToWatch(
+      wantToWatch.filter(
+        (x) => !watchedMovies.filter((y) => y.movie === x.movie).length
+      )
+    );
+  }, [watchedMovies]);
+
+  // Add to watched array
   const addWatchedMovie = (watchedMovie) => {
     setWatchedMovies([watchedMovie, ...watchedMovies]);
   };
 
+  // Delete from watched
   const deleteWatchedMovie = (id) => {
     setWatchedMovies(watchedMovies.filter((item) => item.id !== id));
   };
 
+  //On Modal Submit
   const handleSubmitWatched = (e) => {
     e.preventDefault();
     const movie = {
@@ -51,7 +71,6 @@ function Home() {
       comments: [comment],
       checked: true,
     };
-
     addWatchedMovie(movie);
     setOpenModal(false);
   };
@@ -73,8 +92,6 @@ function Home() {
     clearBoard();
     setOpenModal(!openModal);
   };
-
-  const [movieName, setMovieName] = useState("");
 
   return (
     <div className="Home">
@@ -110,14 +127,6 @@ function Home() {
               ))}
             </div>
           </Scrollbars>
-
-          {/* <h4
-            onClick={() => setToggleList(!toggleList)}
-            style={{ display: watchedMovies.length > 3 ? "block" : "none" }}
-            className="viewAll"
-          >
-            {toggleList ? "Close" : "See All"}
-          </h4> */}
         </div>
 
         {/* ADD WATCHED MODAL */}
@@ -241,8 +250,9 @@ function Home() {
 
       <div className="wantToWatchContainer">
         <WantToWatch
+          wantToWatch={wantToWatch}
+          setWantToWatch={setWantToWatch}
           clearBoard={clearBoard}
-          setWatched={setWatched}
           setMovieName={setMovieName}
           movieName={movieName}
           openModal={openModal}
