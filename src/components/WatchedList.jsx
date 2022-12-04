@@ -12,19 +12,6 @@ function Home({
   wantToWatch,
   setWantToWatch,
 }) {
-  // // WATCHED LOCAL STORAGE
-  // const localWatched = localStorage.getItem("watchedMovies")
-  //   ? JSON.parse(localStorage.getItem("watchedMovies"))
-  //   : [];
-
-  // const [watchedMovies, setWatchedMovies] = useState(localWatched);
-
-  // // WANT TO LOCAL STORAGE
-  // const localWantToWatch = localStorage.getItem("wantToWatch")
-  //   ? JSON.parse(localStorage.getItem("wantToWatch"))
-  //   : [];
-  // const [wantToWatch, setWantToWatch] = useState(localWantToWatch);
-
   const [openModal, setOpenModal] = useState(false);
   const [watchedMovieName, setWatchedMovieName] = useState("");
   const [rating, setRating] = useState(0);

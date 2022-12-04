@@ -97,6 +97,7 @@ body {
 }
 
 .movie-title {
+  text-align: left;
   font-size: 20px;
   color: #7ea9eb;
 }
@@ -368,6 +369,14 @@ body {
 }
 .card-star {
   color: #ceb549;
+}
+.wheel-text {
+  text-align: center;
+}
+
+#canvas {
+  width: 600px;
+  margin: 40px 14px;
 }
 
 /* DESKTOP */

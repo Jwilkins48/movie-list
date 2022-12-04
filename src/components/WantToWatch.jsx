@@ -12,11 +12,9 @@ function WantToWatch({
   setWatchedMovieName,
   clearBoard,
 }) {
-  // LOCAL STORAGE
   useEffect(() => {
-    const json = JSON.stringify(wantToWatch);
-    window.localStorage.setItem("wantToWatch", json);
-  }, [wantToWatch]);
+    localStorage.setItem("wantToWatch", JSON.stringify(wantToWatch));
+  });
 
   const addWantToWatchMovie = (wantToWatchMovie) => {
     setWantToWatch([wantToWatchMovie, ...wantToWatch]);
@@ -35,6 +33,7 @@ function WantToWatch({
       checked: false,
     };
     addWantToWatchMovie(newMovie);
+    console.log(movieName);
     e.target.reset();
   };
 
@@ -58,7 +57,7 @@ function WantToWatch({
             <button className="wantToWatch-inputBtn">Add</button>
           </form>
 
-          {wantToWatch.map((item) => (
+          {wantToWatch?.map((item) => (
             <div key={item.id} id={item.id}>
               <div className="want-to-item">
                 <h2 className="want-movie-list">{item.movie}</h2>
