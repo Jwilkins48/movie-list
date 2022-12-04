@@ -7,9 +7,10 @@ import { useState } from "react";
 
 function App() {
   // WANT TO LOCAL STORAGE
+
   const localWantToWatch = localStorage.getItem("wantToWatch")
     ? JSON.parse(localStorage.getItem("wantToWatch"))
-    : JSON.parse(localStorage.getItem("wantToWatch"));
+    : [];
   const [wantToWatch, setWantToWatch] = useState(localWantToWatch);
 
   // WATCHED LOCAL STORAGE
