@@ -58,27 +58,31 @@ function WantToWatch({
             <button className="wantToWatch-inputBtn">Add</button>
           </form>
 
-          <div className="list-container">
-            {wantToWatch?.map((item) => (
-              <div key={item.id} id={item.id}>
-                <div className="want-to-item">
-                  <h2 className="want-movie-list">{item.movie}</h2>
-                  <button
-                    onClick={(e) => watchedModal(item.movie, item.id)}
-                    className="finished"
-                  >
-                    <i className="fa-solid fa-check"></i>
-                  </button>
-                  {/* Delete want to watch */}
-                  <button
-                    onClick={() => deleteWantToWatchMovie(item.id)}
-                    className="delete-want-btn"
-                  >
-                    <i className="fa-solid fa-xmark "></i>
-                  </button>
-                </div>
+          <div className="scroll">
+            <Scrollbars style={{ width: "100%", height: "32rem" }}>
+              <div className="list-container">
+                {wantToWatch?.map((item) => (
+                  <div key={item.id} id={item.id}>
+                    <div className="want-to-item">
+                      <h2 className="want-movie-list">{item.movie}</h2>
+                      <button
+                        onClick={(e) => watchedModal(item.movie, item.id)}
+                        className="finished"
+                      >
+                        <i className="fa-solid fa-check"></i>
+                      </button>
+                      {/* Delete want to watch */}
+                      <button
+                        onClick={() => deleteWantToWatchMovie(item.id)}
+                        className="delete-want-btn"
+                      >
+                        <i className="fa-solid fa-xmark "></i>
+                      </button>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </Scrollbars>
           </div>
         </div>
       </div>

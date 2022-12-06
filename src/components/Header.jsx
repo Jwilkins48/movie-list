@@ -29,7 +29,7 @@ function Header() {
           <div key={tab.id} id={tab.id}>
             <Link className="link" to={tab.path}>
               <li
-                style={{ backgroundColor: tab.id === active ? "#b44646" : "" }}
+                style={{ backgroundColor: tab.id === active ? "#5642c7" : "" }}
                 onClick={() => setActive(tab.id)}
                 className={tab.id === active ? "active tab" : "tab"}
               >

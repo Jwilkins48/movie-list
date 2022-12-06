@@ -98,7 +98,10 @@ function Home({
               <div className="desktop-watched-btn">Add Watched</div>
             </button>
           </h1>
-          <Scrollbars style={{ width: "100%", height: "32rem" }}>
+          <Scrollbars
+            className="scrollBar"
+            style={{ width: "100%", height: "32rem" }}
+          >
             <div className="card-container">
               {watchedMovies.map((item) => (
                 <div key={item.id} id={item.id}>
