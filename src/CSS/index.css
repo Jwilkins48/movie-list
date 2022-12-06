@@ -380,10 +380,13 @@ body {
 .wheel-text {
   text-align: center;
 }
-
+#wheel {
+  overflow: hidden;
+}
 #canvas {
   width: 600px;
-  margin: 40px 14px;
+  margin-left: 2rem;
+  margin-top: 2rem;
 }
 
 /* DESKTOP */
