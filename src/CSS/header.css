@@ -9,16 +9,19 @@
   align-items: center;
 }
 .icon {
-  margin: 16px 25px 10px;
+  margin: 16px 25px 10px 8px;
   font-size: 25px;
-  color: #e24e4e;
+  color: #43df84;
 }
-
+.wheel-text {
+  font-size: 25px;
+  margin: 50px 0 -15px;
+}
 .title-container h2 {
   font-family: "Lobster", cursive;
   margin: 20px 15px;
   letter-spacing: 0.08rem;
-  color: #e96b6b;
+  color: #43df84;
   font-size: 28px;
 }
 .title-container a {
@@ -45,6 +48,14 @@
   text-decoration: none;
   color: #b2b9d8;
 }
+.spin-header {
+  background: none;
+  border: none;
+  color: #5a42e2;
+  font-family: "Lobster", cursive;
+  font-size: 20px;
+  cursor: pointer;
+}
 
 @media (min-width: 1280px) {
   .mobile-tab-container {
@@ -56,8 +67,14 @@
     font-size: 35px;
   }
   .icon {
-    margin: 16px 35px 10px;
+    margin: 16px 35px 10px 15px;
     font-size: 30px;
-    color: #e24e4e;
+  }
+  .spin-x {
+    right: 25px;
+    font-size: 20px;
+    position: absolute;
+    top: 20px;
+    cursor: pointer;
   }
 }

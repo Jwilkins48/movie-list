@@ -35,7 +35,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header />
+        <Header wantToWatch={wantToWatch} setWantToWatch={setWantToWatch} />
 
         <Routes>
           <Route

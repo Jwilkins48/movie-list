@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../CSS/wantToWatch.css";
 import { v4 as uuidv4 } from "uuid";
 import { Scrollbars } from "react-custom-scrollbars";
@@ -49,6 +49,7 @@ function WantToWatch({
       <div className="wantToWatch-container">
         <div className="wantToWatch-inner">
           <h3>What to watch...</h3>
+
           <form onSubmit={handleSubmitWant} className="input-container">
             <input
               onChange={(e) => setMovieName(e.target.value)}

@@ -40,7 +40,7 @@
   padding: 5px 30px;
   margin: 18px;
   background-color: #5a49be;
-  width: 21rem;
+  width: 85%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -116,6 +116,9 @@
   height: 30.5rem;
   overflow: hidden;
 }
+.spin-modal-container {
+  display: none;
+}
 @media (min-width: 1280px) {
   .wantToWatch-container {
     box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
@@ -167,5 +170,33 @@
     padding: 5px 8px;
     font-size: 15px;
     margin: 0;
+  }
+
+  .spin-modal-container {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    position: absolute;
+    top: 13%;
+    right: 35%;
+    text-align: center;
+    background-color: #2f275f;
+    width: 32rem;
+    border: 2px solid #5a42e2;
+    border-radius: 7px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+    z-index: 2;
+    display: block;
+  }
+  #canvas {
+    width: 650px;
+    margin-left: 3.5rem;
+  }
+
+  .spinner-open {
+    opacity: 1;
+    visibility: visible;
   }
 }

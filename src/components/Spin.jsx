@@ -1,7 +1,7 @@
 import React from "react";
 import WheelComponent from "react-wheel-of-prizes";
 
-function Spin({ wantToWatch }) {
+function Spin({ wantToWatch, setWantToWatch }) {
   const movies = wantToWatch.map((item) => item.movie);
   const segments = movies;
   const colors = [
