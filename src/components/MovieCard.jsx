@@ -57,8 +57,8 @@ function MovieCard({
 
           <div className="card-button-container">
             {/* Button to open comment dropdown */}
-            <button onClick={toggle} className="card-list-item list-btn">
-              {toggleComments ? "Hide" : "Add Comment"}
+            <button onClick={toggle} className="card-list-item list-btn hide">
+              {toggleComments ? "Hide Comments" : "Add Comment"}
             </button>
           </div>
         </div>
@@ -87,10 +87,7 @@ function MovieCard({
           </form>
 
           <div className="comment-container">
-            <div
-              onClick={() => setViewComments(!viewComments)}
-              className="view-comments list-btn"
-            >
+            <div className="view-comments list-btn">
               {item.comments.length} Comment(s)
             </div>
             <Scrollbars

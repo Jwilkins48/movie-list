@@ -13,7 +13,7 @@
   margin: 28px 25px 0;
   width: 20.5rem;
   border: #4a6794 3px solid;
-  background-color: #3d4253;
+  background-color: #599472;
   position: relative;
 }
 
@@ -33,30 +33,33 @@
   position: absolute;
 }
 .want-to-item {
+  border-radius: 10px;
   position: relative;
-
-  margin: 40px 0px;
-  padding: 10px 30px;
-  background-color: #5b678d;
-  width: 100%;
+  margin: 20px auto;
+  padding: 5px 30px;
+  background-color: #5642c7;
+  width: 18rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+.list-container {
+  margin-top: 30px;
+}
 .wantToWatch-input {
-  background-color: #535869;
   padding: 7px 5px;
   border-radius: 0 5px 0 5px;
   border: 1px solid #7ea9eb;
-  color: #fff;
+  background-color: #cbeeda;
   width: 15rem;
   margin-right: 10px;
 }
 .wantToWatch-inputBtn {
   border-radius: 0 5px 0 5px;
   border: 1px solid #7ea9eb;
-  background-color: #688dc5;
-  color: #3d4253;
+  background-color: #5a6ea8;
+  padding: 6px;
+  color: #a3a9b3;
   cursor: pointer;
   box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
 }
@@ -100,6 +103,13 @@
 .finished:hover {
   color: #b0b8c2;
 }
+.want {
+  display: flex;
+  justify-content: center;
+}
+.want-movie-list {
+  font-size: 20px;
+}
 @media (min-width: 1280px) {
   .wantToWatch-container {
     box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
@@ -108,7 +118,6 @@
     margin: 50px 30px 0;
     width: 30rem;
     border: #4a6794 3px solid;
-    background-color: #3d4253;
     position: relative;
   }
 
@@ -134,15 +143,8 @@
   .wantToWatchContainer {
     display: block;
   }
-
   .want-to-item {
-    margin: 35px auto;
-    border: #7ea9eb 1px solid;
-    color: #7ea9eb;
-    border-radius: 20px;
-    padding: 0px 20px;
-    background-color: #5b678d;
-    width: 90%;
+    width: 25rem;
   }
   .want-to-item i {
     margin: 0px 20px 0 5px;

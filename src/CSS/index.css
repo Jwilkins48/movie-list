@@ -7,7 +7,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #272938;
+  background-color: #251f47;
   color: #bdc0cc;
   font-family: "Quicksand", sans-serif;
 }
@@ -19,7 +19,7 @@ body {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin: 25px;
   border-radius: 7px;
-  background-color: #3d4253;
+  background-color: #599472;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +27,6 @@ body {
 
 .watched-inner {
   position: relative;
-  /* padding: 5px; */
 }
 
 .watched-heading {
@@ -46,7 +45,7 @@ body {
 
 .plusIcon {
   font-size: 29px;
-  color: #7ea9eb;
+  color: #44517a;
   cursor: pointer;
 }
 
@@ -58,14 +57,14 @@ body {
   justify-content: center;
   align-items: flex-start;
   padding: 20px;
-  background-color: #535a79;
+  background-color: #498663;
   border-radius: 7px;
   list-style-type: none;
   position: relative;
   width: 285px;
 }
 .card-container {
-  margin-top: 2rem;
+  margin-top: 1rem;
   overflow: auto;
 }
 .delete-watched-btn {
@@ -99,24 +98,21 @@ body {
 .movie-title {
   text-align: left;
   font-size: 20px;
-  color: #7ea9eb;
+  color: #4f448b;
 }
 
 .list-btn {
   font-family: "Quicksand", sans-serif;
-  cursor: pointer;
   background: none;
   border: none;
-  color: #1f2336;
+  color: #251f47;
   text-decoration: underline;
   display: flex;
-  font-size: 15px;
+  margin-top: 0.5rem;
+  font-size: 13px;
 }
 .view-comments {
   font-weight: 600;
-}
-.list-btn:hover {
-  color: #313650;
 }
 
 /* comment dropdown */
@@ -128,6 +124,9 @@ body {
   display: block;
   margin-top: 20px;
   width: 40rem;
+}
+.hide {
+  cursor: pointer;
 }
 .comment-btn {
   background-color: #3d4253;
@@ -153,8 +152,9 @@ body {
 }
 .comment-container {
   list-style-type: disc;
+
   margin: 5px 12px;
-  color: #719ad8;
+  color: #251f47;
   font-weight: bold;
 }
 .comment-container li {
@@ -165,8 +165,8 @@ body {
   display: block;
   width: 17rem;
   height: 1.5px;
-  background: #5e7088;
-  left: -5px;
+  background: #665f92;
+  left: 13px;
   top: 55px;
   position: absolute;
 }
@@ -177,11 +177,13 @@ body {
 }
 .user-comment-container {
   margin: 15px 10px 0px 0px;
-  background-color: #3d4253;
+  background-color: #3d6e52;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border-radius: 5px;
   padding: 10px 15px;
   width: 15rem;
   opacity: 0.7;
+  color: #dad3ff;
   display: flex;
 }
 .username {
@@ -422,7 +424,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: 8px;
     margin-bottom: 40px;
   }
   .watched-heading::after {
@@ -431,6 +432,7 @@ body {
     top: 96px;
   }
   .add-watched-btn {
+    margin-right: 8px;
     background: none;
     border: none;
   }
@@ -440,7 +442,7 @@ body {
   .desktop-watched-btn {
     display: block;
     cursor: pointer;
-    background-color: #bd4b4b;
+    background-color: #4860a7;
     padding: 10px;
     border: transparent;
     border-radius: 6px 0 6px 0;
@@ -450,7 +452,7 @@ body {
   }
   .desktop-watched-btn:hover {
     transform: scale(0.98);
-    background-color: #b44646;
+    background-color: #4b68bd;
   }
 
   .shown {
@@ -464,8 +466,15 @@ body {
     margin-right: 20px;
   }
 
+  .card-container {
+    margin-top: 0rem;
+  }
+
   .comment-container::after {
-    width: 64rem;
+    width: 62rem;
+  }
+  .comment-container {
+    width: 62rem;
   }
 
   .movie-title {
@@ -485,10 +494,10 @@ body {
   }
   .end-content {
     margin-bottom: -2rem;
-    margin-left: 30rem;
+    margin-left: 25rem;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 2rem;
   }
 
   .user-comment-container {

@@ -7,20 +7,27 @@ import WantToWatch from "./WantToWatch";
 import { Scrollbars } from "react-custom-scrollbars";
 
 function Home({
+  setOpenModal,
+  openModal,
+  showRate,
+  setShowRate,
+  comment,
+  setComment,
+  clearBoard,
+  date,
+  setDate,
+  setWatchedMovieName,
+  watchedMovieName,
+  movieName,
+  setMovieName,
   watchedMovies,
   setWatchedMovies,
   wantToWatch,
   setWantToWatch,
 }) {
-  const [openModal, setOpenModal] = useState(false);
-  const [watchedMovieName, setWatchedMovieName] = useState("");
   const [rating, setRating] = useState(0);
-  const [date, setDate] = useState("2022-12-01");
-  const [comment, setComment] = useState("");
   const [activeStar, setActiveStar] = useState("zero");
-  const [showRate, setShowRate] = useState(false);
   const [toggleList, setToggleList] = useState(false);
-  const [movieName, setMovieName] = useState("");
 
   // LOCAL STORAGE
   useEffect(() => {
@@ -66,12 +73,6 @@ function Home({
     setShowRate(true);
     setActiveStar(active);
     setRating(rate);
-  };
-
-  const clearBoard = () => {
-    setComment("");
-    setShowRate(false);
-    setDate("2022-12-01");
   };
 
   const toggleModal = () => {
@@ -245,6 +246,7 @@ function Home({
           openModal={openModal}
           setWatchedMovieName={setWatchedMovieName}
           setOpenModal={setOpenModal}
+          watchedMovieName={watchedMovieName}
         />
       </div>
     </div>

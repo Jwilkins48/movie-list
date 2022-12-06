@@ -20,6 +20,17 @@ function App() {
   const [watchedMovies, setWatchedMovies] = useState(localWatched);
 
   const [movieName, setMovieName] = useState("");
+  const [watchedMovieName, setWatchedMovieName] = useState("");
+  const [openModal, setOpenModal] = useState(false);
+
+  const [date, setDate] = useState("2022-12-01");
+  const [showRate, setShowRate] = useState(false);
+  const [comment, setComment] = useState("");
+  const clearBoard = () => {
+    setComment("");
+    setShowRate(false);
+    setDate("2022-12-01");
+  };
 
   return (
     <BrowserRouter>
@@ -31,6 +42,17 @@ function App() {
             path="/"
             element={
               <WatchedList
+                setOpenModal={setOpenModal}
+                openModal={openModal}
+                clearBoard={clearBoard}
+                setDate={setDate}
+                setShowRate={setShowRate}
+                setComment={setComment}
+                date={date}
+                showRate={showRate}
+                comment={comment}
+                watchedMovieName={watchedMovieName}
+                setWatchedMovieName={setWatchedMovieName}
                 movieName={movieName}
                 setMovieName={setMovieName}
                 watchedMovies={watchedMovies}
@@ -44,6 +66,13 @@ function App() {
             path="/wantToWatch"
             element={
               <WantToWatch
+                setOpenModal={setOpenModal}
+                openModal={openModal}
+                clearBoard={clearBoard}
+                watchedMovieName={watchedMovieName}
+                setWatchedMovieName={setWatchedMovieName}
+                watchedMovies={watchedMovies}
+                setWatchedMovies={setWatchedMovies}
                 movieName={movieName}
                 setMovieName={setMovieName}
                 wantToWatch={wantToWatch}

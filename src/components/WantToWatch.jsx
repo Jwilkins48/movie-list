@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import "../CSS/wantToWatch.css";
 import { v4 as uuidv4 } from "uuid";
+import { Scrollbars } from "react-custom-scrollbars";
 
 function WantToWatch({
+  clearBoard,
   openModal,
   wantToWatch,
   setWantToWatch,
@@ -10,7 +12,6 @@ function WantToWatch({
   setMovieName,
   movieName,
   setWatchedMovieName,
-  clearBoard,
 }) {
   useEffect(() => {
     localStorage.setItem("wantToWatch", JSON.stringify(wantToWatch));
@@ -44,7 +45,7 @@ function WantToWatch({
   };
 
   return (
-    <div>
+    <div className="want">
       <div className="wantToWatch-container">
         <div className="wantToWatch-inner">
           <h3>What to watch...</h3>
@@ -57,26 +58,28 @@ function WantToWatch({
             <button className="wantToWatch-inputBtn">Add</button>
           </form>
 
-          {wantToWatch?.map((item) => (
-            <div key={item.id} id={item.id}>
-              <div className="want-to-item">
-                <h2 className="want-movie-list">{item.movie}</h2>
-                <button
-                  onClick={(e) => watchedModal(item.movie, item.id)}
-                  className="finished"
-                >
-                  Watched<i className="fa-solid fa-check"></i>
-                </button>
-                {/* Delete want to watch */}
-                <button
-                  onClick={() => deleteWantToWatchMovie(item.id)}
-                  className="delete-want-btn"
-                >
-                  <i className="fa-solid fa-xmark "></i>
-                </button>
+          <div className="list-container">
+            {wantToWatch?.map((item) => (
+              <div key={item.id} id={item.id}>
+                <div className="want-to-item">
+                  <h2 className="want-movie-list">{item.movie}</h2>
+                  <button
+                    onClick={(e) => watchedModal(item.movie, item.id)}
+                    className="finished"
+                  >
+                    <i className="fa-solid fa-check"></i>
+                  </button>
+                  {/* Delete want to watch */}
+                  <button
+                    onClick={() => deleteWantToWatchMovie(item.id)}
+                    className="delete-want-btn"
+                  >
+                    <i className="fa-solid fa-xmark "></i>
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
